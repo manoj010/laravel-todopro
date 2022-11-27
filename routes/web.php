@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\TodoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,8 +18,14 @@ use App\Http\Controllers\UserController;
 
 Route::get('/', [HomeController::class, 'login'])->name('login');
 Route::get('/signup', [HomeController::class, 'register'])->name('register');
-Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('dashboard')->middleware(['auth']);
 
 Route::post('/signup', [UserController::class, 'registerUser'])->name('registerUser');
 Route::post('/login', [UserController::class, 'loginUser'])->name('loginUser');
+Route::get('/logout', [UserController::class, 'logoutUser'])->name('logout');
+
+Route::get('/dashboard', [TodoController::class, 'dashboard'])->name('dashboard')->middleware(['auth']);
+Route::post('/addtodo', [TodoController::class, 'addTodo'])->name('addTodo');
+Route::get('/delete/{id}', [TodoController::class, 'deleteTodo']);
+Route::get('/edit/{id}', [TodoController::class, 'edit']);
+Route::post('/edittodo', [TodoController::class, 'editTodo'])->name('editTodo');
 

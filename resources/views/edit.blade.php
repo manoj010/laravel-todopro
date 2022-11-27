@@ -67,40 +67,14 @@
 
     <div class="container px-4 py-0">
     <span style="color: hsl(218, 81%, 95%); font-size: 16px;">Add To Do to list</span>
-        <form action="{{route('addTodo')}}" method="post">
+        <form action="{{route('editTodo')}}" method="post">
             <div class="d-flex">
                 @csrf
-                <input type="hidden" name="user_id" value="{{auth()->user()->id}}">
-                <input type="text" class="form-control m-1" name="todo" placeholder="Enter To do">
-                <button type="submit" class="btn btn-primary m-1">Add</button>
+                <input type="hidden" name="id" value="{{$data->id}}">
+                <input type="text" class="form-control m-1" name="todo" value="{{$data->todo}}" placeholder="Enter To do">
+                <button type="submit" class="btn btn-primary m-1">Update</button>
             </div>
         </form>
-    </div>
-
-    <div class="container py-4">
-        <table class="table table-striped table-dark border-success table-hover table-sm">
-            <thead>
-                <tr>
-                <th scope="col" class="px-3">SN</th>
-                <th scope="col">To Do</th>
-                <th scope="col">Edit</th>
-                <th scope="col">Delete</th>
-                </tr>
-            </thead>
-            <tbody>
-                @php 
-                    $sn = 1;
-                @endphp
-                @foreach($list as $todos)
-                    <tr>
-                        <th scope="row" class="px-3">{{$sn++}}</th>
-                        <td style="width:800px;">{{$todos->todo}}</td>
-                        <td><button type="button" class="btn btn-primary btn-sm"><a class="text-white text-decoration-none" href="{{url('/edit/'.$todos->id)}}">Edit</a></button></td>
-                        <td><button type="button" class="btn btn-danger btn-sm"><a class="text-white text-decoration-none" href="{{url('/delete/'.$todos->id)}}">Delete</a></button></td>
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
     </div>
 </section>
 @endsection

@@ -47,4 +47,10 @@ class UserController extends Controller
             return back() -> with('fail', 'User not found!');
         }
     }
+
+    public function logoutUser() {
+        auth() -> logout();
+
+        return redirect() -> route('login');
+    }
 }

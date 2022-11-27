@@ -80,7 +80,7 @@
         <div class="card bg-glass" style="top: 110px;">
           <div class="card-body px-4 py-5 px-md-5">
             <form method="post" action="{{route('loginUser')}}">
-              @csrf  
+              @csrf 
               <!-- Email input -->
               <div class="form-outline mb-4">
                 <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" />
