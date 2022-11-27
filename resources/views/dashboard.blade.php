@@ -1,7 +1,7 @@
 @extends('layout.app')
 
 @section('content')
-<section class="background-radial-gradient vh-100 overflow-hidden">
+<section class="background-radial-gradient">
   <style>
     .background-radial-gradient {
       background-color: hsl(218, 41%, 15%);
@@ -27,37 +27,14 @@
       background: radial-gradient(#44006b, #ad1fff);
       overflow: hidden;
     }
-
-    #radius-shape-2 {
-      border-radius: 38% 62% 63% 37% / 70% 33% 67% 30%;
-      bottom: -60px;
-      right: -110px;
-      width: 220px;
-      height: 220px;
-      background: radial-gradient(#44006b, #ad1fff);
-      overflow: hidden;
-    }
-
-    #radius-shape-3 {
-      border-radius: 38% 62% 63% 37% / 70% 33% 67% 30%;
-      height: 220px;
-      width: 220px;
-      top: 220px;
-      left: -700px;
-      background: radial-gradient(#44006b, #ad1fff);
-      overflow: hidden;
-    }
-
-    .bg-glass {
-      background-color: hsla(0, 0%, 100%, 0.9) !important;
-      backdrop-filter: saturate(200%) blur(25px);
-    }
   </style>
 
   <div class="container">
+    <div id="radius-shape-1" class="position-absolute rounded-circle shadow-5-strong"></div>
+
     <div class="d-flex py-3">
       <div class="me-auto p-2"><span class="fw-bold ls-tight" style="color: hsl(218, 81%, 95%); font-size: 24px;">Laravel TO DO</span></div>
-      <div class="p-2"><span style="color: hsl(218, 81%, 95%); font-size: 24px;">Welcome, <span style="color: hsl(0, 90%, 50%)">{{auth()->user()->fname}}</span></span></div>
+      <div class="p-2"><span style="color: hsl(218, 81%, 95%); font-size: 24px; z-index: 10;">Welcome, <span style="color: hsl(0, 90%, 50%)">{{auth()->user()->fname}}</span></span></div>
       <div class="p-2">                    
         <form action="{{route('logout')}}" method="get">
             <button type="submit" class="btn btn-danger">Log Out</button>
@@ -71,7 +48,7 @@
             <div class="d-flex">
                 @csrf
                 <input type="hidden" name="user_id" value="{{auth()->user()->id}}">
-                <input type="text" class="form-control m-1" name="todo" placeholder="Enter To do">
+                <input type="text" name="todo" class="form-control m-1 @error('todo') is-invalid @enderror" placeholder="Enter To do">
                 <button type="submit" class="btn btn-primary m-1">Add</button>
             </div>
         </form>

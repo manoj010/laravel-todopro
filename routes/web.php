@@ -25,7 +25,7 @@ Route::get('/logout', [UserController::class, 'logoutUser'])->name('logout');
 
 Route::get('/dashboard', [TodoController::class, 'dashboard'])->name('dashboard')->middleware(['auth']);
 Route::post('/addtodo', [TodoController::class, 'addTodo'])->name('addTodo');
-Route::get('/delete/{id}', [TodoController::class, 'deleteTodo']);
-Route::get('/edit/{id}', [TodoController::class, 'edit']);
+Route::get('/delete/{id}', [TodoController::class, 'deleteTodo'])->middleware(['auth']);
+Route::get('/edit/{id}', [TodoController::class, 'edit'])->middleware(['auth']);
 Route::post('/edittodo', [TodoController::class, 'editTodo'])->name('editTodo');
 

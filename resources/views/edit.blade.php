@@ -27,46 +27,18 @@
       background: radial-gradient(#44006b, #ad1fff);
       overflow: hidden;
     }
-
-    #radius-shape-2 {
-      border-radius: 38% 62% 63% 37% / 70% 33% 67% 30%;
-      bottom: -60px;
-      right: -110px;
-      width: 220px;
-      height: 220px;
-      background: radial-gradient(#44006b, #ad1fff);
-      overflow: hidden;
-    }
-
-    #radius-shape-3 {
-      border-radius: 38% 62% 63% 37% / 70% 33% 67% 30%;
-      height: 220px;
-      width: 220px;
-      top: 220px;
-      left: -700px;
-      background: radial-gradient(#44006b, #ad1fff);
-      overflow: hidden;
-    }
-
-    .bg-glass {
-      background-color: hsla(0, 0%, 100%, 0.9) !important;
-      backdrop-filter: saturate(200%) blur(25px);
-    }
   </style>
 
   <div class="container">
+  <div id="radius-shape-1" class="position-absolute rounded-circle shadow-5-strong"></div>
+
     <div class="d-flex py-3">
       <div class="me-auto p-2"><span class="fw-bold ls-tight" style="color: hsl(218, 81%, 95%); font-size: 24px;">Laravel TO DO</span></div>
       <div class="p-2"><span style="color: hsl(218, 81%, 95%); font-size: 24px;">Welcome, <span style="color: hsl(0, 90%, 50%)">{{auth()->user()->fname}}</span></span></div>
-      <div class="p-2">                    
-        <form action="{{route('logout')}}" method="get">
-            <button type="submit" class="btn btn-danger">Log Out</button>
-        </form>
-      </div>
     </div>
 
     <div class="container px-4 py-0">
-    <span style="color: hsl(218, 81%, 95%); font-size: 16px;">Add To Do to list</span>
+    <span style="color: hsl(218, 81%, 95%); font-size: 16px;">Update To Do list</span>
         <form action="{{route('editTodo')}}" method="post">
             <div class="d-flex">
                 @csrf

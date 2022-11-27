@@ -1,7 +1,7 @@
 @extends('layout.app')
 
 @section('content')
-<section class="background-radial-gradient overflow-hidden">
+<section class="background-radial-gradient vh-100 overflow-hidden">
   <style>
     .background-radial-gradient {
       background-color: hsl(218, 41%, 15%);
