@@ -10,4 +10,8 @@ class User extends Model
     use HasFactory;
 
     protected $fillable = ['fname', 'lname', 'email', 'password', 'repassword'];
+
+    public function todos() {
+        return $this->hasMany(Todo::class);
+    }
 }

@@ -9,10 +9,8 @@ use Illuminate\Http\Request;
 class TodoController extends Controller
 {
     public function dashboard() {
-        // $userid = auth()->user()->id;
-        // $data = DB::table('todos')->where('user_id', $userid)->get();
-        // return view('dashboard', ['list' => data::all()]);
-        return view('dashboard', ['list' => todo::all()]);
+        $todos = Todo::where('user_id', '=', auth()->user()->id)->get();
+        return view('dashboard', compact('todos'));
     }
 
     public function addTodo(Request $req) {

@@ -1,23 +1,8 @@
 @extends('layout.app')
 
 @section('content')
-<section class="background-radial-gradient">
+<section class="container-fluid">
   <style>
-    .background-radial-gradient {
-      background-color: hsl(218, 41%, 15%);
-      background-image: radial-gradient(650px circle at 0% 0%,
-          hsl(218, 41%, 35%) 15%,
-          hsl(218, 41%, 30%) 35%,
-          hsl(218, 41%, 20%) 75%,
-          hsl(218, 41%, 19%) 80%,
-          transparent 100%),
-        radial-gradient(1250px circle at 100% 100%,
-          hsl(218, 41%, 45%) 15%,
-          hsl(218, 41%, 30%) 35%,
-          hsl(218, 41%, 20%) 75%,
-          hsl(218, 41%, 19%) 80%,
-          transparent 100%);
-    }
 
     #radius-shape-1 {
       height: 220px;
@@ -68,12 +53,12 @@
                 @php 
                     $sn = 1;
                 @endphp
-                @foreach($list as $todos)
+                @foreach($todos as $todo)
                     <tr>
                         <th scope="row" class="px-3">{{$sn++}}</th>
-                        <td style="width:800px;">{{$todos->todo}}</td>
-                        <td><button type="button" class="btn btn-primary btn-sm"><a class="text-white text-decoration-none" href="{{url('/edit/'.$todos->id)}}">Edit</a></button></td>
-                        <td><button type="button" class="btn btn-danger btn-sm"><a class="text-white text-decoration-none" href="{{url('/delete/'.$todos->id)}}">Delete</a></button></td>
+                        <td style="width:800px;">{{$todo->todo}}</td>
+                        <td><button type="button" class="btn btn-primary btn-sm"><a class="text-white text-decoration-none" href="{{url('/edit/'.$todo->id)}}">Edit</a></button></td>
+                        <td><button type="button" class="btn btn-danger btn-sm"><a class="text-white text-decoration-none" href="{{url('/delete/'.$todo->id)}}">Delete</a></button></td>
                     </tr>
                 @endforeach
             </tbody>
